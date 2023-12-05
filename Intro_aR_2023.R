@@ -54,20 +54,24 @@ c(1, 2, 3, 4, 5)
 rep(1, 30)
 rep(1:3, 10)
 
+#Relevamiento de rindes, (50 parcelas, media de 2,8 t/ha, sd=0,8)
+rnorm(50,2.8,0.8) #n = observaciones, mean = media, sd = desviacion standart
+#https://www.tutorialspoint.com/r/r_normal_distribution.htm
+
 # Funciones (Agregar comentario a cada funcion)
 x <- 1:20 #Creamos un Objeto
-summary(x)
-sum(x)
-prod(x)
-max(x)
-min(x)
-range(x)
-mean(x)
-median(x)
-sd(x)
-var(x)
-log(x)
-log10(x)
+summary(x) #resumen
+sum(x) #suma
+prod(x) #multiplicacion
+max(x) #maximos
+min(x) #minimos
+range(x) #rango
+mean(x) #media
+median(x) #mediana
+sd(x) #desviacion stadart
+var(x) #Varianza
+log(x) #logaritmo
+log10(x) #logartmo base 10
 
 rev(x)
 x[3] <- 100 #introducir 100 en el lugar 3
@@ -95,16 +99,20 @@ levels(x) <- c("uno", "dos", "tres") #cambiamos todos los niveles por el vector
 ## Matriz
 X <- matrix(c(1, 2, 3, 11, 12, 13), nrow=2, ncol=3, byrow=TRUE, 
             dimnames=list(c("fila1", "fila2"), c("C.1", "C.2", "C.3")))
-rownames(X)
-colnames(X)
-nrow(X)
-ncol(X)
-dim(X) 
+rownames(X) #nombre de filas
+colnames(X) #nombre de columnas
+nrow(X) #Numero de filas
+ncol(X) #numero de columnas
+dim(X) #dimensiones
 t(X) #trasponer
-C.4 <- c(100, 1000)
-X1 <- cbind(X, C.4)
-fila3 <- c(10, 100, 1000)
-X2 <- rbind(X, fila3)
+C.4 <- c(100, 1000) #crear vector para 4ta columna 
+X1 <- cbind(X, C.4) #Agregar 4ta columna a X
+fila3 <- c(10, 100, 1000) #crear fila 3
+X2 <- rbind(X, fila3) #agregar fila 3 a X
+
+#Donde se fue la Columna 4?
+fila3 <- c(10, 100, 1000, 10000) #crear fila 3
+X3 <- rbind(X1, fila3) #agregar fila 3 a X
 
 ## Marco de datos (Data Frame)
 d <- data.frame(alpha=1:3, beta=4:6, gamma=7:9)
@@ -150,7 +158,8 @@ plot(Sepalos_largo, type="l")
 plot(Sepalos_largo, type="b")
 plot(y, xlim=c(40, 80), ylim=c(-20, 20))
 plot(Sepalos_largo~Petalos_largo, main="Iris", xlab="Sepalos (cm)", ylab="Petalos (cm)")
-
+plot(rnorm(50,2.8,0.8))
+hist(rnorm(50,2.8,0.8))
 
 #Paquete tidyverse
 

@@ -1,3 +1,9 @@
+#Que es R?
+#Que es GIT?
+#Que es commit? 
+#Pull?
+#Push
+
 ###### Directorios de trabajo
 setwd("/Users/lio/Documents/GitHub/Intro_R_2023")  #Mac
 setwd("c:/docs/mydir/Session01")  # Windows

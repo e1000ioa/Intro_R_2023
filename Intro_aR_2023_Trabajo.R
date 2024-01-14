@@ -12,6 +12,7 @@ getwd() #Donde estamos trabajando ahora?
 # Comentarios
 # comentario
 
+
 # Paquetes
 install.packages("tidyverse", dependencies=T)
 install.packages("dplyr", dependencies=T)
@@ -20,7 +21,7 @@ library(dplyr)
 update.packages() #actualiza todos los paquetes que tengas instalados
 
 ### Operadores
-+ #Sumar
+  + #Sumar
   - #Restar
   * #Multiplicar
   / #Dividir
@@ -80,7 +81,7 @@ caracteres_vector <- c("uno", "dos", "tres")
 peso <- c(60, 72, 57, 90, 95, 72) 
 altura <- c(1.75, 1.80, 1.65, 1.90, 1.74, 1.91)
 plot(altura, peso)
-imc <- peso/altura^2
+imc <- (peso/altura)^2
 
 ## Matriz
 X <- matrix(c(1, 2, 3, 11, 12, 13), nrow=2, ncol=3, byrow=TRUE, 
@@ -178,6 +179,8 @@ plot(Sepalos_largo, type="l")
 plot(Sepalos_largo, type="b")
 plot(y, xlim=c(40, 80), ylim=c(-20, 20))
 plot(Sepalos_largo~Petalos_largo, main="Iris", xlab="Sepalos (cm)", ylab="Petalos (cm)")
+
+#Generacion de Datos
 plot(rnorm(50,2.8,0.8))
 hist(rnorm(50,2.8,0.8))
 

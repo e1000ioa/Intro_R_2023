@@ -1,11 +1,12 @@
 ---
 title: "Introduccion a R"
-subtitle: Transformando Datos en Conocimiento 
-author: Emilio Aguilar Cubilla
-date: Diciembre, 2023
+author: "Emilio Aguilar Cubilla"
+date: "Diciembre, 2023"
 output:
+  beamer_presentation: default
   ioslides_presentation:
-    widescreen: true
+    widescreen: yes
+subtitle: Transformando Datos en Conocimiento
 ---
 
 # Que es R?
@@ -26,7 +27,7 @@ R es un lenguaje de programación y un entorno de software diseñado específica
 
 # Que es GIT?
 
-**Git** es un sistema de control de versiones distribuido ampliamente utilizado. Fue creado por Linus Torvalds en 2005 y se ha convertido en una herramienta esencial para el desarrollo de software colaborativo. Aquí tienes una descripción de Git y algunos de sus beneficios:
+**Git** es un sistema de control de versiones distribuido ampliamente utilizado. Fue creado por Linus Torvalds en 2005 y se ha convertido en una herramienta esencial para el desarrollo de software colaborativo.
 
 ## Beneficios de Git:
 

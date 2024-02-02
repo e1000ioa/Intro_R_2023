@@ -6,7 +6,7 @@
 
 ###### Directorios de trabajo
 setwd("/Users/lio/Documents/GitHub/Intro_R_2023")  #Mac
-setwd("c:/docs/mydir/Session01")  # Windo
+setwd("c:/docs/mydir/Session01")  # Windows
 getwd() #Donde estamos trabajando ahora?
 
 # Comentarios
@@ -14,51 +14,26 @@ getwd() #Donde estamos trabajando ahora?
 
 
 # Paquetes
-install.packages("tidyverse", dependencies=T) #instalamos los paquetes
+install.packages("tidyverse", dependencies=T)
 install.packages("dplyr", dependencies=T)
-library(tidyverse) #activamos lo paquetes en cada archivo
+library(tidyverse)
 library(dplyr) 
 update.packages() #actualiza todos los paquetes que tengas instalados
 
-#Operadores de Asignacion 
-Variable <- 43
-Variable = 45
-
 ### Operadores
-
-#Operadores Aritmeticos
   + #Sumar
   - #Restar
   * #Multiplicar
   / #Dividir
   ^ #Potencia 
-  
-  
-a <- 10
-b <- 3
-perro <- b + a 
-log(perro)
-suma
-print(suma)
-division <- 10/3
-
-
-#Operadores de Comparacion
   < #Mayor Que
   <= #Mayor o Igual Que
   > #Menor que
   >= #Menor o Igual que
   == #Igual Que
   != #no es igual
-
-x <- 5
-y <- 10
-resultado <- x > y
-print(resultado)
-
-#Operador Logico
-x | y #Operador Logico OR (O)
-x & y #Operador Logico AND (Y)
+  x | y #Operador Logico OR
+x & y #Operador Logico AND
 
 ## Ayuda (Google a todo)
 ?lm #Busqueda Simple
@@ -74,15 +49,10 @@ x <- NA
 #### Tipos de objetos
 
 # Funciones 
-x <- 1:20 #Creamos un Objeto 
-
-
-#Funciones de Informacion
+x <- 1:20 #Creamos un Objeto
 summary(x) #resumen
 mode(x) #El tipo de objeto
 length(x) #La Longitud del objeto
-
-#
 median(x) #mediana
 sum(x) #suma
 prod(x) #multiplicacion
@@ -108,22 +78,17 @@ entero_vector <- c(1L, 2L, 3L)
 logico_vector <- c(TRUE, FALSE, TRUE)
 caracteres_vector <- c("uno", "dos", "tres")
 
-mode(logico_vector)
-
 peso <- c(60, 72, 57, 90, 95, 72) 
 altura <- c(1.75, 1.80, 1.65, 1.90, 1.74, 1.91)
 plot(altura, peso)
 imc <- (peso/altura)^2
-plot(peso,imc)
 
 ## Matriz
-X1 <- matrix(c(1, 2, 3, 11, 12, 13), nrow=2, ncol=3, byrow=TRUE, 
+X <- matrix(c(1, 2, 3, 11, 12, 13), nrow=2, ncol=3, byrow=TRUE, 
             dimnames=list(c("fila1", "fila2"), c("C.1", "C.2", "C.3")))
 
-X2 <- matrix(c(10, 10, 10, 10, 10, 10), nrow=2, ncol=3, byrow=TRUE, 
+X <- matrix(c(10, 10, 10, 10, 10, 10), nrow=2, ncol=3, byrow=TRUE, 
             dimnames=list(c("fila1", "fila2"), c("C.1", "C.2", "C.3")))
-
-X1 * X2
 
 rownames(X) #nombre de filas
 colnames(X) #nombre de columnas

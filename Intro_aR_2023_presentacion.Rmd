@@ -1,13 +1,58 @@
 ---
 title: "Introduccion a R"
 author: "Emilio Aguilar Cubilla"
-date: "Diciembre, 2023"
+date: "Marzo, 2024"
 output:
   ioslides_presentation:
-    widescreen: yes
-  beamer_presentation: default
-subtitle: Transformando Datos en Conocimiento
+    widescreen: true
+    smaller: true
+  slidy_presentation: default
+theme: Lumen
+subtitle: Transformando Datos en Historias
 ---
+
+# Quien cuenta historias, domina el mundo
+
+### Proverbio Hopi
+
+# Campo Hopi {data-background=Imagenes/Hopi_Corn.png data-background-size=cover}
+
+# Un efecto especial es una herramienta, un medio para contar una historia. Un efecto especial sin una historia es algo bastante aburrido
+
+#### George Lucas
+
+# {data-background=Imagenes/millennium-falcon.png data-background-size=cover}
+
+# {data-background=Imagenes/ggplot_plots.png data-background-size=cover}
+
+</center>
+
+# Contenido
+<div style="text-align: right;">
+  - Sobre el Software
+    - Que es R
+    - Que es GIT
+    - Directorios de Trabajo
+    - Paquetes
+    - Ayuda
+    </div>
+    
+# Contenido
+<div style="text-align: right;">  
+  - Como utilizar R
+    - Operadores
+    - Objetos
+    - Indexacion
+    - Generacion de Datos
+    - Graficos
+    - Tidyverse
+    
+    
+  - Practica
+</div>
+
+# Como trabajar
+
 
 # Que es R?
 
@@ -82,7 +127,7 @@ R es un lenguaje de programación y un entorno de software diseñado específica
      
 ## Patalla de R
 
-![https://bookdown.org/gboccardo/manual-ED-UCH/uso-basico-de-rstudio.html](Imagenes/RStudio-pantalla.png){#id .class width=80% height=80%}
+![](Imagenes/RStudio-pantalla.png){#id .class width=80% height=80%}
 
 ## Directorios de trabajo | y comentarios
 
@@ -93,7 +138,7 @@ Comentarios: Proporciona información adicional sobre el propósito o funcionami
 ```{r, echo=TRUE, message = FALSE}
 
 ###### Directorios de trabajo
-setwd("~/Documents/GitHub/Intro_R_2023")  #Mac
+#setwd("~/Users/lio/Git/Intro_R_2023")  #Mac
 getwd() #Donde estamos trabajando?
 
 # Comentarios
@@ -102,7 +147,7 @@ getwd() #Donde estamos trabajando?
 ```
 
 
-## Paquetes
+# Paquetes
 
 Los "paquetes" son un conjuntos de herramientas, funciones y datos que extienden la funcionalidad básica del lenguaje.
 
@@ -130,7 +175,7 @@ library(dplyr)
 
 # ¿Por qué debemos instalar los paquetes?
 
-## Ayuda
+# Ayuda
 
 En R, el signo de interrogación (?) se utiliza para acceder a la documentación de una función o de un paquete. Al colocar el signo de interrogación seguido del nombre de una función o paquete y ejecutar esa línea de código, R abrirá la documentación correspondiente en la ventana de ayuda.
 
@@ -141,7 +186,7 @@ En R, el signo de interrogación (?) se utiliza para acceder a la documentación
 ```
 
 
-## Operadores 
+# Operadores 
 
 Los operadores son símbolos o palabras clave que realizan operaciones en variables y valores.
 
@@ -216,7 +261,7 @@ print(resultado)
 
 
 
-## Objetos 
+# Objetos 
 
 En el contexto de R, "objetos" se refiere a las estructuras de datos que almacenan información.
 
@@ -418,9 +463,11 @@ levels(x) <- c("uno", "dos", "tres") #cambiamos todos los niveles por el vector
 data <- as.matrix(data) #Para convertir en Matriz
 
 data
+
+
 ```
 
-# ¿Que tipos de datos hay en la matriz?
+¿Que tipos de datos hay en la matriz?
 
 ## Objetos | Manipulaciones
 
@@ -481,7 +528,7 @@ x
 ```
 
 
-## Indexacion
+# Indexacion
 
 La indexación en R se refiere a la forma en que accedemos a elementos específicos en un objeto de datos, como vectores, matrices, listas o data frames.
 
@@ -493,7 +540,7 @@ iris
 
 ## Indexacion
 
-![http://www.lac.inpe.br/~rafael.santos/Docs/CAP394/WholeStory-Iris.html](Imagenes/iris.png){#id .class width=90% height=90%}
+![](Imagenes/iris.png){#id .class width=70% height=70%}
 
 ## Indexacion
 
@@ -682,7 +729,7 @@ summary(Ingreso) #Sumario de Datos
 
 # ¿Que departamento tiene el mayor ingreso promedio?
 
-## ¿Que departamento tiene el mayor ingreso promedio?
+# ¿Que departamento tiene el mayor ingreso promedio?
 ```{r}
 #Cambiar a datos largos
 dato_largo <- Ingreso %>%
@@ -747,9 +794,24 @@ resultados
 # Crear una paleta de colores
 colores <- rainbow(length(unique(resultados$Departamento)))
 
-plot(resultados$Cantidad~resultados$year, col = colores[as.factor(resultados$Departamento)], main="Ingresos Promedio Paraguay", xlab="Año", ylab="Ingresos (Millones de Guaranies)")
+# Graficar puntos
+plot(resultados$Cantidad ~ resultados$year, 
+     col = colores[as.factor(resultados$Departamento)], 
+     main = "Ingresos Promedio Paraguay", 
+     xlab = "Año", 
+     ylab = "Ingresos (Millones de Guaranies)")
 
-legend("topright", legend = unique(resultados$Departamento), fill = colores, title = "Departamento")
+# Agregar líneas conectando los puntos
+for (depto in unique(resultados$Departamento)) {
+  datos_depto <- resultados[resultados$Departamento == depto, ]
+  lines(datos_depto$year, datos_depto$Cantidad, col = colores[depto])
+}
+
+# Leyenda
+legend("topright", 
+       legend = unique(resultados$Departamento), 
+       fill = colores, 
+       title = "Departamento")
 
 
 ```
